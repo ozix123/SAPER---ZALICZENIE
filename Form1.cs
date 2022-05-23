@@ -46,6 +46,11 @@ namespace SAPER___ZALICZENIE
                 int score = int.Parse(label4.Text);
                 score++;
                 label4.Text = score.ToString();
+
+                if (score == 1)
+                {
+                    MessageBox.Show("Przegra³eœ!", "Wynik:", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
             }
             else
             {
