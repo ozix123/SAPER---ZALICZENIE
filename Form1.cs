@@ -53,7 +53,9 @@ namespace SAPER___ZALICZENIE
                 {
                     MessageBox.Show("Przegra³eœ!", "Wynik:", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
+                btnTemp.Image = global::SAPER___ZALICZENIE.Properties.Resources.bomba;
             }
+
             else
             {
                 btnTemp.BackColor = Color.Green;
