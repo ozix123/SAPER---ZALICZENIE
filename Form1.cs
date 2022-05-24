@@ -86,5 +86,11 @@ namespace SAPER___ZALICZENIE
             }
             label5.Text = Convert.ToString(min) + " : " + Convert.ToString(sec);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form2 GameWindow = new Form2();
+            GameWindow.Show();
+        }
     }
 }
