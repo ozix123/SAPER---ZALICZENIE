@@ -1,18 +1,28 @@
+Ôªøusing System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
 namespace SAPER___ZALICZENIE
 {
-    public partial class Form1 : Form
+    public partial class Form2 : Form
     {
-        public Form1()
+        int sec = 0;
+        int min = 0;
+        public Form2()
         {
             InitializeComponent();
+            GeneratorPlanszy();
         }
-        public int poziom = 0;
-        static int sec = 0;
-        static int min = 0;
-        private void button1_Click(object sender, EventArgs e)
+        public void GeneratorPlanszy()
         {
-            sec = 0;
-            min = 0;
+            int sec = 0;
+            int min = 0;
             Random rdn = new Random();
             int x = rdn.Next(1, 12);
             int y = rdn.Next(13, 18);
@@ -36,12 +46,10 @@ namespace SAPER___ZALICZENIE
             }
             timer1.Enabled = true;
         }
-        private void BtnTemp_Click(object sender, EventArgs e)
+        public void BtnTemp_Click(object sender, EventArgs e)
         {
             Button btnTemp = (Button)sender;
             bool tag = (bool)btnTemp.Tag;
-
-           
 
             if (tag)
             {
@@ -49,19 +57,13 @@ namespace SAPER___ZALICZENIE
                 int score = int.Parse(label4.Text);
                 score++;
                 label4.Text = score.ToString();
-                timer1.Enabled = false;
-
-                btnTemp.BackgroundImageLayout = ImageLayout.Stretch;
-                btnTemp.BackgroundImage = global::SAPER___ZALICZENIE.Properties.Resources.bomba;
 
                 if (score == 1)
                 {
-                    MessageBox.Show("Przegra≥eú!", "Wynik:", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    MessageBox.Show("Przegra≈Çe≈õ!", "Wynik:", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
-                
-                
-            }
 
+            }
             else
             {
                 btnTemp.BackColor = Color.Green;
@@ -72,16 +74,6 @@ namespace SAPER___ZALICZENIE
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             sec++;
@@ -90,13 +82,7 @@ namespace SAPER___ZALICZENIE
                 sec = 0;
                 min++;
             }
-            label5.Text = Convert.ToString(min) + " : " + Convert.ToString(sec);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Form2 GameWindow = new Form2();
-            GameWindow.Show();
+            labeltimer.Text = Convert.ToString(min) + " : " + Convert.ToString(sec);
         }
     }
 }
