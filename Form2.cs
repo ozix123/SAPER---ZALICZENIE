@@ -12,6 +12,8 @@ namespace SAPER___ZALICZENIE
 {
     public partial class Form2 : Form
     {
+        int sec = 0;
+        int min = 0;
         public Form2()
         {
             InitializeComponent();
@@ -42,6 +44,7 @@ namespace SAPER___ZALICZENIE
                     btnTemp.Tag = false;
 
             }
+            timer1.Enabled = true;
         }
         public void BtnTemp_Click(object sender, EventArgs e)
         {
@@ -69,6 +72,17 @@ namespace SAPER___ZALICZENIE
                 label3.Text = score.ToString();
 
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            sec++;
+            if (sec == 60)
+            {
+                sec = 0;
+                min++;
+            }
+            labeltimer.Text = Convert.ToString(min) + " : " + Convert.ToString(sec);
         }
     }
 }

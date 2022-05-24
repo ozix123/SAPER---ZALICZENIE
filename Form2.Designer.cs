@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.labeltimer = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -84,11 +87,26 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Wynik";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // labeltimer
+            // 
+            this.labeltimer.AutoSize = true;
+            this.labeltimer.Location = new System.Drawing.Point(364, 12);
+            this.labeltimer.Name = "labeltimer";
+            this.labeltimer.Size = new System.Drawing.Size(13, 15);
+            this.labeltimer.TabIndex = 10;
+            this.labeltimer.Text = "0";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(467, 450);
+            this.Controls.Add(this.labeltimer);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -108,5 +126,7 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private System.Windows.Forms.Timer timer1;
+        private Label labeltimer;
     }
 }
