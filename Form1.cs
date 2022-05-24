@@ -41,6 +41,8 @@ namespace SAPER___ZALICZENIE
             Button btnTemp = (Button)sender;
             bool tag = (bool)btnTemp.Tag;
 
+           
+
             if (tag)
             {
                 btnTemp.BackColor = Color.Red;
@@ -49,11 +51,15 @@ namespace SAPER___ZALICZENIE
                 label4.Text = score.ToString();
                 timer1.Enabled = false;
 
+                btnTemp.BackgroundImageLayout = ImageLayout.Stretch;
+                btnTemp.BackgroundImage = global::SAPER___ZALICZENIE.Properties.Resources.bomba;
+
                 if (score == 1)
                 {
                     MessageBox.Show("Przegra³eœ!", "Wynik:", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
-                btnTemp.Image = global::SAPER___ZALICZENIE.Properties.Resources.bomba;
+                
+                
             }
 
             else
