@@ -9,6 +9,7 @@ namespace SAPER___ZALICZENIE
         public int poziom = 0;
         static int sec = 0;
         static int min = 0;
+        public bool przegrana = false;
         private void button1_Click(object sender, EventArgs e)
         {
             sec = 0;
@@ -41,34 +42,37 @@ namespace SAPER___ZALICZENIE
             Button btnTemp = (Button)sender;
             bool tag = (bool)btnTemp.Tag;
 
-           
-
-            if (tag)
+            if (przegrana == true)
             {
-                btnTemp.BackColor = Color.Red;
-                int score = int.Parse(label4.Text);
-                score++;
-                label4.Text = score.ToString();
-                timer1.Enabled = false;
-
-                btnTemp.BackgroundImageLayout = ImageLayout.Stretch;
-                btnTemp.BackgroundImage = global::SAPER___ZALICZENIE.Properties.Resources.bomba;
-
-                if (score == 1)
-                {
-                    MessageBox.Show("Przegra³eœ!", "Wynik:", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                }
-                
-                
-            }
-
+                btnTemp.Enabled = false;
+            } 
             else
             {
-                btnTemp.BackColor = Color.Green;
-                int score = int.Parse(label3.Text);
-                score++;
-                label3.Text = score.ToString();
+                if (tag)
+                {
+                    btnTemp.BackColor = Color.Red;
+                    int score = int.Parse(label4.Text);
+                    score++;
+                    label4.Text = score.ToString();
+                    timer1.Enabled = false;
+                    przegrana = true;
 
+                    btnTemp.BackgroundImageLayout = ImageLayout.Stretch;
+                    btnTemp.BackgroundImage = global::SAPER___ZALICZENIE.Properties.Resources.bomba;
+
+                    if (score == 1)
+                    {
+                        MessageBox.Show("Przegra³eœ!", "Wynik:", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    }
+                }
+                else
+                {
+                    btnTemp.BackColor = Color.Green;
+                    int score = int.Parse(label3.Text);
+                    score++;
+                    label3.Text = score.ToString();
+                    btnTemp.Enabled = false;
+                }
             }
         }
 
