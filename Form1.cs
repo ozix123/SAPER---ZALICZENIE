@@ -32,7 +32,7 @@ namespace SAPER___ZALICZENIE
                     btnTemp.Tag = true;
                 else
                     btnTemp.Tag = false;
-
+                
             }
             timer1.Enabled = true;
         }
@@ -97,6 +97,13 @@ namespace SAPER___ZALICZENIE
         {
             Form2 GameWindow = new Form2();
             GameWindow.Show();
+        }
+       
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            Application.Restart();
         }
     }
 }
