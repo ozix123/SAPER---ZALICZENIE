@@ -97,6 +97,7 @@ namespace SAPER___ZALICZENIE
                             if (i == minah[ii]) btnTemp.Tag = true;
                         }
                     }
+                    timer1.Enabled = true;
                     break;
             }
             }
@@ -112,10 +113,13 @@ namespace SAPER___ZALICZENIE
                 score++;
                 label4.Text = score.ToString();
 
+                btnTemp.BackgroundImageLayout = ImageLayout.Stretch;
+                btnTemp.BackgroundImage = global::SAPER___ZALICZENIE.Properties.Resources.bomba;
+
                 if (score == 1)
                 {
                     MessageBox.Show("Przegrałeś!", "Wynik:", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                }
+                } 
 
             }
             else
@@ -137,6 +141,11 @@ namespace SAPER___ZALICZENIE
                 min++;
             }
             labeltimer.Text = Convert.ToString(min) + " : " + Convert.ToString(sec);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }
