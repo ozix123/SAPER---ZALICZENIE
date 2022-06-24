@@ -146,7 +146,7 @@ namespace SAPER___ZALICZENIE
                     int score = int.Parse(label3.Text);
                     score++;
                     label3.Text = score.ToString();
-
+                    btnTemp.Enabled=false;
                 }
             }
         }
