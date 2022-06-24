@@ -75,6 +75,29 @@ namespace SAPER___ZALICZENIE
                     }
                     timer1.Enabled = true;
                     break;
+                case 2:
+                    int[] minah = new int[24];
+                    for (int i = 0; i < 24; i++)
+                    {
+                        minah[i] = rdn.Next((5 * i) + 1, (5 * i) + 5);
+                    }
+                    for (int i = 0; i < 120; i++)
+                    {
+                        Button btnTemp = new Button();
+                        btnTemp.Cursor = System.Windows.Forms.Cursors.Arrow;
+                        btnTemp.Name = "btnTemp" + i.ToString();
+                        btnTemp.Size = new System.Drawing.Size(40, 40);
+                        btnTemp.UseVisualStyleBackColor = true;
+                        flowLayoutPanel1.Controls.Add(btnTemp);
+                        flowLayoutPanel1.Size = new System.Drawing.Size(570, 470);
+                        btnTemp.Click += BtnTemp_Click;
+                        btnTemp.Tag = false;
+                        for (int ii = 0; ii < 24; ii++)
+                        {
+                            if (i == minah[ii]) btnTemp.Tag = true;
+                        }
+                    }
+                    break;
             }
             }
         public void BtnTemp_Click(object sender, EventArgs e)
