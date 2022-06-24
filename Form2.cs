@@ -15,6 +15,7 @@ namespace SAPER___ZALICZENIE
         static int sec = 0;
         static int min = 0;
         string[] levelName = {"łatwy", "średni", "trudny"};
+        public bool przegrana = false;
         public Form2(int poziom)
         {
             InitializeComponent();
@@ -47,7 +48,10 @@ namespace SAPER___ZALICZENIE
                             btnTemp.Tag = true;
                         else
                             btnTemp.Tag = false;
-
+                        btnTemp.FlatStyle = FlatStyle.Flat;
+                        btnTemp.FlatAppearance.CheckedBackColor = Color.Silver;
+                        btnTemp.FlatAppearance.MouseDownBackColor = Color.Silver;
+                        btnTemp.FlatAppearance.MouseOverBackColor = Color.Silver;
                     }
                     timer1.Enabled = true;
                     break;
@@ -72,6 +76,10 @@ namespace SAPER___ZALICZENIE
                         {
                             if (i == mina[ii]) btnTemp.Tag = true;
                         }
+                        btnTemp.FlatStyle = FlatStyle.Flat;
+                        btnTemp.FlatAppearance.CheckedBackColor = Color.Silver;
+                        btnTemp.FlatAppearance.MouseDownBackColor = Color.Silver;
+                        btnTemp.FlatAppearance.MouseOverBackColor = Color.Silver;
                     }
                     timer1.Enabled = true;
                     break;
@@ -96,6 +104,10 @@ namespace SAPER___ZALICZENIE
                         {
                             if (i == minah[ii]) btnTemp.Tag = true;
                         }
+                        btnTemp.FlatStyle = FlatStyle.Flat;
+                        btnTemp.FlatAppearance.CheckedBackColor = Color.Silver;
+                        btnTemp.FlatAppearance.MouseDownBackColor = Color.Silver;
+                        btnTemp.FlatAppearance.MouseOverBackColor = Color.Silver;
                     }
                     timer1.Enabled = true;
                     break;
@@ -105,30 +117,37 @@ namespace SAPER___ZALICZENIE
         {
             Button btnTemp = (Button)sender;
             bool tag = (bool)btnTemp.Tag;
-
-            if (tag)
+            if (przegrana == true)
             {
-                btnTemp.BackColor = Color.Red;
-                int score = int.Parse(label4.Text);
-                score++;
-                label4.Text = score.ToString();
-
-                btnTemp.BackgroundImageLayout = ImageLayout.Stretch;
-                btnTemp.BackgroundImage = global::SAPER___ZALICZENIE.Properties.Resources.bomba;
-
-                if (score == 1)
-                {
-                    MessageBox.Show("Przegrałeś!", "Wynik:", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                } 
-
+                btnTemp.Enabled = false;
             }
             else
             {
-                btnTemp.BackColor = Color.Green;
-                int score = int.Parse(label3.Text);
-                score++;
-                label3.Text = score.ToString();
+                if (tag)
+                {
+                    btnTemp.BackColor = Color.Red;
+                    int score = int.Parse(label4.Text);
+                    score++;
+                    label4.Text = score.ToString();
+                    timer1.Enabled = false;
+                    przegrana = true;
+                    btnTemp.BackgroundImageLayout = ImageLayout.Stretch;
+                    btnTemp.BackgroundImage = global::SAPER___ZALICZENIE.Properties.Resources.bomba;
 
+                    if (score == 1)
+                    {
+                        MessageBox.Show("Przegrałeś!", "Wynik:", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    }
+
+                }
+                else
+                {
+                    btnTemp.BackColor = Color.Green;
+                    int score = int.Parse(label3.Text);
+                    score++;
+                    label3.Text = score.ToString();
+
+                }
             }
         }
 

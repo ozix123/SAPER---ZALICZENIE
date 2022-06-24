@@ -33,7 +33,10 @@ namespace SAPER___ZALICZENIE
                     btnTemp.Tag = true;
                 else
                     btnTemp.Tag = false;
-                
+                btnTemp.FlatStyle = FlatStyle.Flat;
+                btnTemp.FlatAppearance.CheckedBackColor = Color.Silver;
+                btnTemp.FlatAppearance.MouseDownBackColor = Color.Silver;
+                btnTemp.FlatAppearance.MouseOverBackColor = Color.Silver;
             }
             timer1.Enabled = true;
         }
@@ -74,6 +77,7 @@ namespace SAPER___ZALICZENIE
                     btnTemp.Enabled = false;
                 }
             }
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
