@@ -99,7 +99,7 @@ namespace SAPER___ZALICZENIE
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form2 GameWindow = new Form2();
+            Form2 GameWindow = new Form2(poziom);
             GameWindow.Show();
         }
        
@@ -112,7 +112,8 @@ namespace SAPER___ZALICZENIE
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            poziom = listBox1.SelectedIndex;
+            Console.WriteLine(poziom.ToString());
         }
     }
 }
