@@ -100,9 +100,9 @@
             this.labeltimer.AutoSize = true;
             this.labeltimer.Location = new System.Drawing.Point(618, 41);
             this.labeltimer.Name = "labeltimer";
-            this.labeltimer.Size = new System.Drawing.Size(13, 15);
+            this.labeltimer.Size = new System.Drawing.Size(34, 15);
             this.labeltimer.TabIndex = 10;
-            this.labeltimer.Text = "0";
+            this.labeltimer.Text = "00:00";
             // 
             // label5
             // 
